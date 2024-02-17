@@ -1,7 +1,6 @@
 resource "aws_key_pair" "deployer" {
     key_name   = "key-for-demo"  # Replace with your desired key name
-    public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCqr+YR6YDXLWJBfPEef/benT0XVHYXB9StHQRWSEEsPMwmScYCGnmackKiVB7VZi0n8rrYB+HMwVNomVY2+K46Qfn1kmjbKuDDkcE/VynSSfDj0SfVDhc5+I1FeGE4esqoiE+5JXHE1tc3TXJQlzthPF6VGNWOiD/WqQyn8gWTiJhchDQOTH2Xhc6Ul0CZy2aHmQUN2QZXl0CUaUu0u19S0gwgaPsmmI3+6eLbiFZ7fKp/0hCh/r822E6Sc35TrDGv94xYYYQhwjo7XdYdep4xVsil0kpbRrw3pZsCPy/2FGnO6gOEFRMcG16YglcCgyXZuHBOfyKFonQUEuqq5nCQdoBTel2ecX7TZ5SwtUCurrggJmk7NgBM0o+EaCGWk1DC6N+zlWjYnvLEaTi2WWH9dHw/unQI3Xxc1TgtlzX3DuykWBnUJrdVFbRtAaAYEMfkg+fGoJVN61+vOMAGFy8yqK5GHMYroqAG77Hxo7yuRHzvlgBonrFps4Ee9NO1de0= desai@DESKTOP-CDMG8I0"
-  
+    public_key = "addyourpublickey"
 }
 resource "aws_vpc" "my_vpc" {
     cidr_block = var.cidr
@@ -81,7 +80,7 @@ resource "aws_instance" "instance-terraform" {
     connection {
     type        = "ssh"
     user        = "ubuntu"  # Replace with the appropriate username for your EC2 instance
-    private_key = file("C:/Users/desai/DevopsProjects/key-for-demo")  # Replace with the path to your private key
+    private_key = file("/key-for-demo")  # Replace with the path to your private key
     host        = self.public_ip
     }
 
